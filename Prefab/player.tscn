@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4xha1tuh2gp1" path="res://Scripts/player.gd" id="1_ohvtk"]
 [ext_resource type="Texture2D" uid="uid://cv8uk1knb5wf" path="res://Assets/134_War_Jets-ezgif.com-gif-to-sprite-converter - Copy.png" id="1_wftou"]
+[ext_resource type="PackedScene" uid="uid://cxffv2hk2mkel" path="res://Prefab/gun.tscn" id="3_gh5aj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohvtk"]
 atlas = ExtResource("1_wftou")
@@ -25,7 +26,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Player" type="Area2D" unique_id=1197589936]
+[node name="Player" type="Area2D" unique_id=1197589936 groups=["Player"]]
 script = ExtResource("1_ohvtk")
 metadata/_edit_group_ = true
 
@@ -40,3 +41,6 @@ polygon = PackedVector2Array(8, -49, 8, -28, 17, -20, 17, -7, 47, 23, 50, 23, 50
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1347702592]
 zoom = Vector2(1.5, 1.5)
+
+[node name="gun" parent="." unique_id=1970201648 instance=ExtResource("3_gh5aj")]
+rotation = -1.5707964

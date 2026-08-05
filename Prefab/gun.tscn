@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cxffv2hk2mkel"]
+
+[ext_resource type="Script" uid="uid://bkpumdfmeo3wv" path="res://Scripts/gun.gd" id="1_nbl26"]
+
+[node name="gun" type="Node2D" unique_id=1970201648]
+script = ExtResource("1_nbl26")
+
+[node name="Timer" type="Timer" parent="." unique_id=709881288]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
