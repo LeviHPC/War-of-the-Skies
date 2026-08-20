@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqn3nx8okqtw5" path="res://Prefab/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://bg01nmg2m30nu" path="res://Assets/qFSYy4.png" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bqu86eyoykg6c" path="res://Prefab/enemy.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D" unique_id=1974854030]
 
@@ -11,4 +12,6 @@ scale = Vector2(8, 8)
 texture = ExtResource("1_qxrlw")
 
 [node name="Player" parent="." unique_id=1197589936 instance=ExtResource("1_ebmjs")]
-position = Vector2(222, 303)
+
+[node name="Enemy" parent="." unique_id=1027579749 instance=ExtResource("3_wrm1d")]
+position = Vector2(-20, 242)

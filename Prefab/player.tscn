@@ -26,7 +26,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Player" type="Area2D" unique_id=1197589936 groups=["Player"]]
+[node name="Player" type="Area2D" unique_id=1197589936 groups=["Player", "player"]]
 script = ExtResource("1_ohvtk")
 metadata/_edit_group_ = true
 
