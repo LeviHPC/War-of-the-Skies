@@ -2,12 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://cil0armw3xd7h" path="res://Assets/frame_0_delay-0.05s.png" id="1_3o12q"]
 [ext_resource type="Script" uid="uid://crktror8jvkw6" path="res://Scripts/enemy.gd" id="1_axcr2"]
+[ext_resource type="PackedScene" uid="uid://cxffv2hk2mkel" path="res://Prefab/gun.tscn" id="3_50k3d"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1027579749]
 script = ExtResource("1_axcr2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=266254474]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_3o12q")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1826944673]
+scale = Vector2(0.6, 0.6)
 polygon = PackedVector2Array(-1, -68, -24, -12, -48, 14, -48, 33, -39, 33, -36, 52, -33, 58, -12, 58, -1, 68, 9, 57, 33, 57, 47, 34, 47, 13, 23, -14)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1024874255]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=922976723]
+polygon = PackedVector2Array(-32, -56, 0, -72, 32, -56, 64, -320, 32, -352, 0, -384, -32, -352, -64, -320)
+
+[node name="gun" parent="." unique_id=1970201648 instance=ExtResource("3_50k3d")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

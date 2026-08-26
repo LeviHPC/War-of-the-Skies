@@ -42,5 +42,21 @@ polygon = PackedVector2Array(8, -49, 8, -28, 17, -20, 17, -7, 47, 23, 50, 23, 50
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1347702592]
 zoom = Vector2(1.5, 1.5)
 
+[node name="UI" type="Control" parent="Camera2D" unique_id=208210913]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health" type="Label" parent="Camera2D/UI" unique_id=609725386]
+layout_mode = 1
+offset_left = -384.0
+offset_top = -216.0
+offset_right = -344.0
+offset_bottom = -193.0
+text = "pluh"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI" unique_id=1283687206]
+
 [node name="gun" parent="." unique_id=1970201648 instance=ExtResource("3_gh5aj")]
 rotation = -1.5707964
