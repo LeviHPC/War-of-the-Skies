@@ -18,6 +18,8 @@ config/icon="res://Assets/icon.svg"
 [global_group]
 
 player=""
+enemy=""
+bad_bullet=""
 
 [input]
 

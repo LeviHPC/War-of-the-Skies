@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjc7tw6ijt3mw"
-path="res://.godot/imported/redblue (2).png-ab1958c5d4558386c9675ca7f6b3592a.ctex"
+uid="uid://dqvl6ao1kp4el"
+path="res://.godot/imported/04.png-2cc434e2eff05826fdfb463bd540b619.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/redblue (2).png"
-dest_files=["res://.godot/imported/redblue (2).png-ab1958c5d4558386c9675ca7f6b3592a.ctex"]
+source_file="res://Assets/04.png"
+dest_files=["res://.godot/imported/04.png-2cc434e2eff05826fdfb463bd540b619.ctex"]
 
 [params]
 

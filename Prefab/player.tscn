@@ -28,7 +28,10 @@ animations = [{
 
 [node name="Player" type="Area2D" unique_id=1197589936 groups=["Player", "player"]]
 script = ExtResource("1_ohvtk")
-metadata/_edit_group_ = true
+
+[node name="gun" parent="." unique_id=1970201648 instance=ExtResource("3_gh5aj")]
+position = Vector2(0, -35)
+rotation = -1.5707964
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=224485751]
 scale = Vector2(0.5, 0.5)
@@ -38,25 +41,3 @@ frame_progress = 0.12456336
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1418976575]
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(8, -49, 8, -28, 17, -20, 17, -7, 47, 23, 50, 23, 50, 27, 46, 27, 40, 35, 34, 35, 30, 39, 29, 41, 29, 45, 33, 48, 33, 50, 25, 57, 25, 61, 20, 61, 20, 57, 14, 51, 11, 51, 11, 49, 4, 49, 2, 47, -1, 47, -3, 50, -10, 50, -13, 51, -19, 57, -20, 61, -24, 61, -24, 57, -32, 50, -32, 47, -28, 45, -28, 41, -34, 35, -39, 35, -47, 26, -47, 23, -16, -7, -16, -21, -8, -27, -8, -49, 0, -55)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1347702592]
-zoom = Vector2(1.5, 1.5)
-
-[node name="UI" type="Control" parent="Camera2D" unique_id=208210913]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Health" type="Label" parent="Camera2D/UI" unique_id=609725386]
-layout_mode = 1
-offset_left = -384.0
-offset_top = -216.0
-offset_right = -344.0
-offset_bottom = -193.0
-text = "pluh"
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI" unique_id=1283687206]
-
-[node name="gun" parent="." unique_id=1970201648 instance=ExtResource("3_gh5aj")]
-rotation = -1.5707964

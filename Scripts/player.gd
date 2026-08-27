@@ -1,10 +1,13 @@
 extends Area2D
 
+class_name player
 #varibles
 @export var speed = 300
 @export var turn_speed = 3
 @onready var Gun = $"gun"
 var shootCooldown = 0
+var Team = "good"
+var Health = 100
 
 #making the plane go infinitly forward
 func _physics_process(delta: float) -> void:
@@ -17,6 +20,8 @@ func _physics_process(delta: float) -> void:
 	shootCooldown -= delta
 	
 	turn(delta)
+	
+	
 		
 #Making the plane turn
 func turn(delta: float) -> void:

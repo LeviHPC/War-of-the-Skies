@@ -4,6 +4,7 @@ var bullet_prefab = preload("res://Prefab/bullet.tscn")
 
 var rotation_player: Vector2 = Vector2.from_angle(rotation)
 var shootCooldown = 0
+var Team = "good"
 @onready var enemy = $"../"
 
 func _process(delta: float) -> void:
@@ -25,4 +26,5 @@ func spawn_bullet(direction : Vector2):
 	bullet.position = global_position
 	bullet.direction = direction
 	bullet.global_rotation = global_transform.get_rotation()
+	bullet.Team = Team  #assigns the bullets team
 	get_tree().root.add_child(bullet)

@@ -3,8 +3,52 @@
 [ext_resource type="Texture2D" uid="uid://cil0armw3xd7h" path="res://Assets/frame_0_delay-0.05s.png" id="1_3o12q"]
 [ext_resource type="Script" uid="uid://crktror8jvkw6" path="res://Scripts/enemy.gd" id="1_axcr2"]
 [ext_resource type="PackedScene" uid="uid://cxffv2hk2mkel" path="res://Prefab/gun.tscn" id="3_50k3d"]
+[ext_resource type="Texture2D" uid="uid://dqvl6ao1kp4el" path="res://Assets/04.png" id="4_n8406"]
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1027579749]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tx4l"]
+atlas = ExtResource("4_n8406")
+region = Rect2(48, 67, 48, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8oiq"]
+atlas = ExtResource("4_n8406")
+region = Rect2(96, 67, 48, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bil13"]
+atlas = ExtResource("4_n8406")
+region = Rect2(144, 67, 48, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os1cv"]
+atlas = ExtResource("4_n8406")
+region = Rect2(192, 67, 48, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6q8r"]
+atlas = ExtResource("4_n8406")
+region = Rect2(240, 67, 48, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u6dk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tx4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8oiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bil13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os1cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6q8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1027579749 groups=["enemy"]]
 script = ExtResource("1_axcr2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=266254474]
@@ -21,5 +65,10 @@ polygon = PackedVector2Array(-1, -68, -24, -12, -48, 14, -48, 33, -39, 33, -36, 
 polygon = PackedVector2Array(-32, -56, 0, -72, 32, -56, 64, -320, 32, -352, 0, -384, -32, -352, -64, -320)
 
 [node name="gun" parent="." unique_id=1970201648 instance=ExtResource("3_50k3d")]
+position = Vector2(0, -45)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=204645598]
+position = Vector2(0, 48)
+sprite_frames = SubResource("SpriteFrames_3u6dk")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

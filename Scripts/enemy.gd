@@ -1,10 +1,12 @@
 extends CharacterBody2D
-
+class_name enemy
 #set variable
 var player: Node2D 
 @export var speed: float = 120.0
 @export var turn = 0.05
 var cooldown = 0
+var Team = "bad"
+var Health = 100
 
 @onready var sprite = $Sprite2D
 @onready var hitbox = $CollisionPolygon2D
@@ -26,7 +28,6 @@ func _process(delta: float) -> void:
 	#cooldown for shooting
 	if 0 < cooldown and cooldown < 11:
 		cooldown -= 1
-		print(cooldown)
 	
 	# rotate to player
 	var speeen = lerp((player.global_position - global_position).angle() + (PI / 2),turn,0.01)
@@ -46,5 +47,5 @@ func _process(delta: float) -> void:
 	#chase player
 	velocity = global_position.direction_to(player.global_position) * speed 
 	move_and_slide()
-
+	print(Health)
 	
