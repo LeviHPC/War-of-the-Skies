@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bfoit6u8yu1oq"]
+
+[ext_resource type="PackedScene" uid="uid://cqn3nx8okqtw5" path="res://Prefab/player.tscn" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://bg01nmg2m30nu" path="res://Assets/qFSYy4.png" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bqu86eyoykg6c" path="res://Prefab/enemy.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://bgcm088gtscpw" path="res://Scripts/camera_2d.gd" id="4_i6g32"]
+[ext_resource type="Script" uid="uid://cf0wk8dodi7pk" path="res://Scripts/ui.gd" id="5_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://dqvl6ao1kp4el" path="res://Assets/04.png" id="6_v158k"]
+[ext_resource type="Texture2D" uid="uid://dci58is0xl7rm" path="res://Assets/death screen.png" id="7_1l0tm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rklwh"]
+atlas = ExtResource("6_v158k")
+region = Rect2(51, 48, 47, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoyf1"]
+atlas = ExtResource("6_v158k")
+region = Rect2(98, 48, 47, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmuh6"]
+atlas = ExtResource("6_v158k")
+region = Rect2(145, 48, 47, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty16k"]
+atlas = ExtResource("6_v158k")
+region = Rect2(192, 48, 47, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k2bi"]
+atlas = ExtResource("6_v158k")
+region = Rect2(239, 48, 47, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i32cl"]
+atlas = ExtResource("6_v158k")
+region = Rect2(286, 48, 47, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4fw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rklwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoyf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmuh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty16k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k2bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i32cl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldgsr"]
+
+[node name="Game" type="Node2D" unique_id=1974854030]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441152783]
+position = Vector2(-1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("1_qxrlw")
+
+[node name="Player" parent="." unique_id=1197589936 instance=ExtResource("1_ebmjs")]
+
+[node name="Enemy" parent="." unique_id=1027579749 instance=ExtResource("3_wrm1d")]
+position = Vector2(-20, 242)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1865257084]
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("4_i6g32")
+
+[node name="UI" type="Control" parent="Camera2D" unique_id=629426434]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_1l0tm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D/UI" unique_id=1866265725]
+position = Vector2(-280.6875, -181)
+scale = Vector2(4.3750005, 4.3749995)
+sprite_frames = SubResource("SpriteFrames_h4fw4")
+
+[node name="Health" type="Label" parent="Camera2D/UI" unique_id=1384853007]
+layout_mode = 1
+offset_left = -314.0
+offset_top = -191.0
+offset_right = -272.0
+offset_bottom = -168.0
+text = "100%"
+label_settings = SubResource("LabelSettings_ldgsr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI" unique_id=2103218240]
+position = Vector2(0.5101905, -1.9073486e-06)
+scale = Vector2(0.95877546, 0.96)
+texture = ExtResource("7_1l0tm")
+
+[connection signal="game_over" from="Player" to="Camera2D/UI" method="_on_player_game_over"]

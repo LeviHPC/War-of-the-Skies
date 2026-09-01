@@ -4,5 +4,11 @@ extends Camera2D
 
 @onready var player = $"../Player"
 
+
+
 func _process(delta: float) -> void:
 	global_position = player.global_position
+
+
+func _on_player_game_over() -> void:
+	self.queue_free()

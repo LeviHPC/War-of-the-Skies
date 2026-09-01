@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://1bap0fcldd2r"]
+
+[ext_resource type="Texture2D" uid="uid://dfj0my2ude2x5" path="res://Assets/682c2b945027a21c42dfb8ba-removebg-preview.png" id="1_jk8f5"]
+[ext_resource type="Script" uid="uid://cu47nm6yqcnry" path="res://Scripts/missiles.gd" id="1_txjx5"]
+
+[sub_resource type="Curve2D" id="Curve2D_txjx5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk3jh"]
+radius = 95.0
+height = 458.0
+
+[node name="Missiles" type="Area2D" unique_id=1567874755]
+script = ExtResource("1_txjx5")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=72369305]
+curve = SubResource("Curve2D_txjx5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1918616798]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=677963324]
+texture = ExtResource("1_jk8f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223975919]
+shape = SubResource("CapsuleShape2D_kk3jh")

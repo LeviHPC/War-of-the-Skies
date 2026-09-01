@@ -3,6 +3,10 @@ extends Control
 @onready var health_label = $Health
 @onready var player = $"../../Player"
 @onready var bar = $AnimatedSprite2D
+@onready var game_over = $Sprite2D
+var fade = 120
+
+
  
 
 
@@ -22,3 +26,8 @@ func _process(delta: float) -> void:
 		bar.frame = 4
 	elif player.Health > 24:
 		bar.frame = 5
+	game_over.modulate = Color(1,1,1,0)
+
+func _on_player_game_over() -> void:
+	game_over.modulate = Color(1,1,1,abs(fade-1))
+	

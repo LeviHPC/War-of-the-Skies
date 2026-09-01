@@ -8,6 +8,8 @@ class_name player
 var shootCooldown = 0
 var Team = "good"
 var Health = 100
+signal game_over
+
 
 #making the plane go infinitly forward
 func _physics_process(delta: float) -> void:
@@ -15,13 +17,17 @@ func _physics_process(delta: float) -> void:
 	position += forward_direction * speed * delta
 	#shooting
 	if Input.is_action_pressed("shoot") and shootCooldown <= 0:
+		Gun.Team = Team
 		Gun._shoot(delta)
 		shootCooldown = 0.1
 	shootCooldown -= delta
 	
 	turn(delta)
 	
-	
+	if Health <= 0:
+		self.queue_free()
+		game_over.emit()
+		
 		
 #Making the plane turn
 func turn(delta: float) -> void:
@@ -29,3 +35,4 @@ func turn(delta: float) -> void:
 		rotate(-turn_speed * get_process_delta_time())
 	if Input.is_action_pressed("Right"):
 		rotate(turn_speed * get_process_delta_time())
+		
