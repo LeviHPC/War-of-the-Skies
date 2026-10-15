@@ -3,7 +3,7 @@ class_name enemy
 #set variable
 var player: Node2D 
 @export var speed: float = 120.0
-@export var turn = 0.05
+@export var turn = 0.025
 var cooldown = 0
 var Team = "bad"
 var Health = 100
@@ -35,7 +35,11 @@ func _process(delta: float) -> void:
 		cooldown -= 1
 	
 	# rotate to player
-	var speeen = lerp((player.global_position - global_position).angle() + (PI / 2),turn,0.01)
+	
+	var target_angle = (player.global_position - global_position).angle() + (PI / 2)
+	
+	var speeen = lerp_angle(sprite.global_rotation, target_angle, turn)# * delta)
+	
 	sprite.global_rotation = speeen
 	hitbox.global_rotation = speeen
 	Area.global_rotation = speeen

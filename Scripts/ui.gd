@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	
 	else:
 		fade += delta
-		game_over.modulate = Color(1,1,1,abs(fade-1))
+		game_over.modulate = Color(1,1,1,fade)
 
 func _on_player_game_over() -> void:
 	dead = true

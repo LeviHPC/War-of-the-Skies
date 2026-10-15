@@ -8,11 +8,27 @@ class_name player
 var shootCooldown = 0
 var Team = "good"
 var Health = 100
+var fuel = 100
 signal game_over
 
 
 #making the plane go infinitly forward
 func _physics_process(delta: float) -> void:
+	
+	if not Input.is_action_pressed("Boost"):
+		speed = 300
+		if fuel < 100:
+			fuel = fuel + 0.5
+	else:
+		print(fuel)
+		if fuel > 0.5:
+			speed = 400
+			fuel = fuel - 1
+		else:
+			speed = 300
+	
+	
+	
 	var forward_direction = Vector2.UP.rotated(rotation)
 	position += forward_direction * speed * delta
 	#shooting

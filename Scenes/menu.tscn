@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ejd6g5aw0mo7"]
+
+[ext_resource type="Texture2D" uid="uid://bg01nmg2m30nu" path="res://Assets/qFSYy4.png" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://cf7nawsxfjlgu" path="res://Assets/War of the Skies.png" id="2_cayip"]
+[ext_resource type="Script" uid="uid://5blgj51a65uv" path="res://Scripts/menu.gd" id="3_158mb"]
+
+[node name="Menu" type="Node2D" unique_id=1563307900]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1051185776]
+scale = Vector2(2, 2)
+texture = ExtResource("1_1rerr")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=1892432141]
+position = Vector2(-0.99998474, -80.999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_cayip")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=995295347]
+zoom = Vector2(1.75, 1.75)
+
+[node name="UI" type="Control" parent="." unique_id=1102312244]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_158mb")
+
+[node name="Settings" type="Button" parent="UI" unique_id=385135711]
+layout_mode = 0
+offset_left = -123.0
+offset_top = 72.0
+offset_right = 128.0
+offset_bottom = 103.0
+text = "Settings"
+
+[node name="Play" type="Button" parent="UI" unique_id=2123427596]
+layout_mode = 0
+offset_left = -123.0
+offset_top = 31.0
+offset_right = 128.0
+offset_bottom = 62.0
+text = "     Play     "
+
+[connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]

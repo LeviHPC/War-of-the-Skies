@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cf0wk8dodi7pk" path="res://Scripts/ui.gd" id="5_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://dqvl6ao1kp4el" path="res://Assets/04.png" id="6_v158k"]
 [ext_resource type="Texture2D" uid="uid://dci58is0xl7rm" path="res://Assets/death screen.png" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://dfix0khcvg42j" path="res://Prefab/tile_map_layer.tscn" id="9_h4fw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rklwh"]
 atlas = ExtResource("6_v158k")
@@ -62,19 +63,13 @@ animations = [{
 
 [node name="Game" type="Node2D" unique_id=1974854030]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441152783]
-position = Vector2(-1, 0)
-scale = Vector2(8, 8)
-texture = ExtResource("1_qxrlw")
-
-[node name="Player" parent="." unique_id=1197589936 instance=ExtResource("1_ebmjs")]
-
-[node name="Enemy" parent="." unique_id=1027579749 instance=ExtResource("3_wrm1d")]
-position = Vector2(-20, 242)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1865257084]
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("4_i6g32")
+
+[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=441152783]
+scale = Vector2(3, 3)
+texture = ExtResource("1_qxrlw")
 
 [node name="UI" type="Control" parent="Camera2D" unique_id=629426434]
 layout_mode = 3
@@ -102,6 +97,20 @@ position = Vector2(0.5101905, -1.9073486e-06)
 scale = Vector2(0.95877546, 0.96)
 texture = ExtResource("7_1l0tm")
 
-[connection signal="game_over" from="Player" to="Enemy" method="_on_player_game_over"]
+[node name="Player" parent="." unique_id=1197589936 instance=ExtResource("1_ebmjs")]
+
+[node name="Enemy" parent="." unique_id=1027579749 instance=ExtResource("3_wrm1d")]
+position = Vector2(-20, 242)
+
+[node name="Scrolling background" type="Node2D" parent="." unique_id=1929137666]
+
+[node name="Parallax2D3" type="Parallax2D" parent="Scrolling background" unique_id=1304891918]
+repeat_size = Vector2(1100, 1100)
+repeat_times = 2
+
+[node name="TileMapLayer" parent="Scrolling background/Parallax2D3" unique_id=1233424006 instance=ExtResource("9_h4fw4")]
+modulate = Color(1, 1, 1, 0.627451)
+
 [connection signal="game_over" from="Player" to="Camera2D" method="_on_player_game_over"]
 [connection signal="game_over" from="Player" to="Camera2D/UI" method="_on_player_game_over"]
+[connection signal="game_over" from="Player" to="Enemy" method="_on_player_game_over"]
